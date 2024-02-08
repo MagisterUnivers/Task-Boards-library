@@ -9,12 +9,10 @@ const CardsSchema = Schema(
 		description: {
 			type: String,
 			required: [true, 'Description is required'],
-			unique: true
 		},
 		category: {
 		type: String,
 		required: [true, 'Category is required'],
-		unique: true
 		},
 	},
 	{ versionKey: false, timestamps: true }
