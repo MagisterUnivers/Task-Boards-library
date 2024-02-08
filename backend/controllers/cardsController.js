@@ -1,15 +1,15 @@
 const { ctrlWrapper } = require('../decorators');
 const fs = require('fs/promises');
 
-const Boards = require('../models/boards');
+const Cards = require('../models/cards');
 
-const createBoard = async (req, res) => {
+const createCard = async (req, res) => {
   const { title } = req.body
   const result = await Boards.create({ title })
   res.status(201).json(result)
 }
 
-const updateBoardById = async (req, res) => {
+const updateCardById = async (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
 
@@ -20,7 +20,7 @@ const updateBoardById = async (req, res) => {
     res.json(board);
 }
 
-const deleteBoardById = async (req, res) => {
+const deleteCardById = async (req, res) => {
   const {id} = req.params
    const deletedBoard = await Boards.findByIdAndDelete(id);
     if (!deletedBoard) {
@@ -31,7 +31,7 @@ const deleteBoardById = async (req, res) => {
 
 
 module.exports = {
-  createBoard: ctrlWrapper(createBoard),
-  updateBoardById: ctrlWrapper(updateBoardById),
-  deleteBoardById: ctrlWrapper(deleteBoardById)
+  createCard: ctrlWrapper(createCard),
+  updateCardById: ctrlWrapper(updateCardById),
+  deleteCardById: ctrlWrapper(deleteCardById)
 };

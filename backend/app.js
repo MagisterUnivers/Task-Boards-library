@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-// const authRouter = require('./routes/api/auth-router');
+const cardsRouter = require('./routes/api/cards-router');
 const boardsRouter = require('./routes/api/boards-router');
 const searchRouter = require('./routes/api/search-router');
 
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// app.use('/users', authRouter);
+app.use('/cards', cardsRouter);
 app.use('/boards', boardsRouter);
 app.use('/search', searchRouter);
 app.get("/api/home", (req, res) => {

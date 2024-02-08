@@ -11,18 +11,6 @@ const { id } = req.params;
 	res.json(result);
 };
 
-const updateBoardById = async (req, res) => {
-  const { id } = req.params;
-  const { title } = req.body;
-
-  const board = await Boards.findByIdAndUpdate(id, { title }, { new: true });
-    if (!board) {
-      throw new HttpError(404, `Board with id=${id} was not found`);
-    }
-    res.json(board);
-}
-
 module.exports = {
-  getBoardById: ctrlWrapper(getBoardById),
-  updateBoardById: ctrlWrapper(updateBoardById)
+  getBoardById: ctrlWrapper(getBoardById)
 };

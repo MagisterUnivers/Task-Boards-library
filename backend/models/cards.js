@@ -11,6 +11,11 @@ const CardsSchema = Schema(
 			required: [true, 'Description is required'],
 			unique: true
 		},
+		category: {
+		type: String,
+		required: [true, 'Category is required'],
+		unique: true
+		},
 	},
 	{ versionKey: false, timestamps: true }
 );
