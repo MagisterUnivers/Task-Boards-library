@@ -11,6 +11,13 @@ const { id } = req.params;
 	res.json(result);
 };
 
+const getAllBoards = async (req, res) => {
+	const result = await Boards.find()
+  	if (!result) throw HttpError(404, `Boards was not found`);
+	res.json(result);
+};
+
 module.exports = {
-  getBoardById: ctrlWrapper(getBoardById)
+	getBoardById: ctrlWrapper(getBoardById),
+	getAllBoards: ctrlWrapper(getAllBoards)
 };
